@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slideshow text</title>
+</head>
+<body>
+<div class="slideshow-container" id="slideshow" style="font-family: Fira Sans; text-align: center; padding: 20px; transition: opacity 1s ease-in-out;">
+    Loading...
+</div>
+
+<script>
+    const texts = [
+        "1. Allah’a itimat et. O’na sığın, O’na dayan. Çünkü, O’nun gücü her şeye yeter.",
+        "2. İnsan hatasız olmaz. Kusursuz dost arayan dost bulamaz. Bize düşen, kendi eksiklerimizi görüp onları ikmal etmeye, olgunlaştırmaya çalışmak, başkasının ise eksiklerinden çok iyi ve güzel yönlerini görmeye çalışmaktır.",
+        "3. Allah kimseye kaldıramayacağı yükü yüklemez. Ancak zorluklarla, yokluklarla veya varlıkla sınar. Bütün bu imtihanların üstesinden gelmek de yine ancak O’nun yardımıyla olur. O halde, asla ümitsizliğe kapılmada var gücünle gayret et, gerisini O’na bırak. Sonrasına da tevekkül et. Olanda hayır vardır.",
+        "4. Hayat inişler ve çıkışlarla doludur. Bugün fakirsin yarın zengin olmayacağına, bugün ağasın yarın maraba olmayacağına garantin yok. Önemli olan insanlığını kaybetmemendir. Düşmez kalkmaz bir Allah.",
+        "5. Dua Allah ile senin aranda, kimsenin araya giremediği çok güçlü bir bağdır. O bağı koparma. Her halinde ona ihtiyacın var. Aynı zamanda dua bir ibadettir. Sevabı var.",
+        "6. İyi şeylerle meşgul ol, iyilerle otur kalk, iyi şeyler ye iç, iyi şeyler konuş ki iyilerden olasın. Kötülüğün, günahın ve boş işlerin hiç bir faydasını göremezsin."
+    ];
+
+    const slideshow = document.getElementById("slideshow");
+
+        function updateText() {
+            slideshow.style.opacity = 0;
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * texts.length);
+                slideshow.textContent = texts[randomIndex];
+                slideshow.style.opacity = 1;
+            }, 1000); // Matches the CSS transition duration
+        }
+
+        setInterval(updateText, 4000); // Change text every 4 seconds to allow for fade effect
+        updateText(); // Initialize with a random text
+    </script>
